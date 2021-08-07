@@ -48,6 +48,8 @@ _zsh_tfswitch_download_install() {
     tar xzf ${TFSWITCH_HOME}/tfswitch.tar.gz --directory ${TFSWITCH_HOME} 2>&1 > /dev/null
     rm -rf ${TFSWITCH_HOME}/tfswitch.tar.gz
     echo ${version} > ${ZSH_TFSWITCH_VERSION_FILE}
+    _zsh_tfswitch_log $BOLD "blue" "Creating directory : $HOME/bin"
+    mkdir $HOME/bin
 }
 
 _zsh_tfswitch_install() {
@@ -82,7 +84,7 @@ update_zsh_tfswitch() {
 
 _zsh_tfswitch_load() {
     # export PATH
-    export PATH=${PATH}:${TFSWITCH_HOME}
+    export PATH=${PATH}:${TFSWITCH_HOME}:$HOME/bin
 }
 
 # install tfswitch if it isnt already installed
