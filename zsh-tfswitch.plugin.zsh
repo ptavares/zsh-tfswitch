@@ -82,8 +82,7 @@ update_zsh_tfswitch() {
 
 _zsh_tfswitch_load() {
     # export PATH
-    export CUSTOMBIN=$HOME/.local/bin
-    export PATH=${PATH}:${TFSWITCH_HOME}:${CUSTOMBIN}
+    export PATH=${PATH}:${TFSWITCH_HOME}
 }
 
 # install tfswitch if it isnt already installed
