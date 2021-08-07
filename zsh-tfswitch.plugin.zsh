@@ -4,6 +4,7 @@
 # commons
 #####################
 autoload colors is-at-least
+autoload -U add-zsh-hook
 
 #########################
 # constant
@@ -81,7 +82,8 @@ update_zsh_tfswitch() {
 
 _zsh_tfswitch_load() {
     # export PATH
-    export PATH=${PATH}:${TFSWITCH_HOME}
+    export CUSTOMBIN=$HOME/.local/bin
+    export PATH=${PATH}:${TFSWITCH_HOME}:${CUSTOMBIN}
 }
 
 # install tfswitch if it isnt already installed
@@ -98,12 +100,12 @@ fi
 ########################################################
 load-tfswitch() {
   local tfswitchrc_path=".tfswitchrc"
-
   if [ -f "$tfswitchrc_path" ]; then
     tfswitch
   fi
 }
-add-zsh-hook chpwd load-tfswitch
-load-tfswitch
 
 unset -f _zsh_tfswitch_install _zsh_tfswitch_load
+
+add-zsh-hook chpwd load-tfswitch
+load-tfswitch
