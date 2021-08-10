@@ -84,7 +84,7 @@ update_zsh_tfswitch() {
 
 _zsh_tfswitch_load() {
     # export PATH
-    export PATH=${PATH}:${TFSWITCH_HOME}:$HOME/bin
+    export PATH=${PATH}:${TFSWITCH_HOME}
 }
 
 # install tfswitch if it isnt already installed
@@ -105,6 +105,8 @@ load-tfswitch() {
     tfswitch
   fi
 }
+
+alias tfswitch='tfswitch --bin=$HOME/.local/bin/terraform'
 
 unset -f _zsh_tfswitch_install _zsh_tfswitch_load
 
