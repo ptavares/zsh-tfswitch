@@ -1,28 +1,28 @@
 #!/usr/bin/env zsh
 
-#####################
+################################################################################
 # commons
-#####################
+################################################################################
 autoload colors is-at-least
 autoload -U add-zsh-hook
 
-#########################
+################################################################################
 # constant
-#########################
+################################################################################
 bold="bold"
 none="none"
 
-#########################
-# plugin main
-#########################
+################################################################################
+# Plugin main
+################################################################################
 
 [[ -z "$TFSWITCH_HOME" ]] && export TFSWITCH_HOME="$HOME/.tfswitch/"
 
 ZSH_TFSWITCH_VERSION_FILE=${TFSWITCH_HOME}/version.txt
 
-#########################
+# ------------------------------------------------------------------------------
 # Functions
-#########################
+# ------------------------------------------------------------------------------
 
 _zsh_tfswitch_log() {
     local font=$1
@@ -95,10 +95,14 @@ if [[ -f "${ZSH_TFSWITCH_VERSION_FILE}" ]]; then
     _zsh_tfswitch_load
 fi
 
+# ------------------------------------------------------------------------------
+# Set Alias for tfswitch to always use $HOME/.local/bin directory
+# ------------------------------------------------------------------------------
+alias tfswitch='tfswitch --bin=$HOME/.local/bin/terraform'
 
-########################################################
-##### function to load tfswitch automaticaly
-########################################################
+# ------------------------------------------------------------------------------
+# function to load tfswitch automatically
+# ------------------------------------------------------------------------------
 load-tfswitch() {
   local tfswitchrc_path=".tfswitchrc"
   if [ -f "$tfswitchrc_path" ]; then
@@ -106,9 +110,7 @@ load-tfswitch() {
   fi
 }
 
-alias tfswitch='tfswitch --bin=$HOME/.local/bin/terraform'
-
-unset -f _zsh_tfswitch_install _zsh_tfswitch_load
-
 add-zsh-hook chpwd load-tfswitch
 load-tfswitch
+
+unset -f _zsh_tfswitch_install _zsh_tfswitch_load
