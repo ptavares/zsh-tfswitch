@@ -43,8 +43,26 @@ _zsh_tfswitch_last_version() {
 
 _zsh_tfswitch_download_install() {
     local version=$1
+    local machine
+    case "$(uname -m)" in
+      x86_64)
+        machine=amd64
+        ;;
+      arm64)
+        machine=arm64
+        # if on Darwin, trim $OSTYPE to match the tfswitch release
+        [[ "$OSTYPE" == "darwin"* ]] && local OSTYPE=darwin
+        ;;
+      i686 | i386)
+        machine=386
+        ;;
+      *)
+        _zsh_tfswitch_log $BOLD "red" "Machine $(uname -m) not supported by this plugin"
+        return 1
+      ;;
+    esac
     _zsh_tfswitch_log $NONE "blue" "  -> download and install tfswitch ${version}"
-    wget -qc --no-check-certificate https://github.com/warrensbox/terraform-switcher/releases/download/${version}/terraform-switcher_${version}_${OSTYPE%-*}_amd64.tar.gz -O ${TFSWITCH_HOME}/tfswitch.tar.gz
+    curl -o ${TFSWITCH_HOME}/tfswitch.tar.gz -fsSL https://github.com/warrensbox/terraform-switcher/releases/download/${version}/terraform-switcher_${version}_${OSTYPE%-*}_${machine}.tar.gz
     tar xzf ${TFSWITCH_HOME}/tfswitch.tar.gz --directory ${TFSWITCH_HOME} 2>&1 > /dev/null
     rm -rf ${TFSWITCH_HOME}/tfswitch.tar.gz
     echo ${version} > ${ZSH_TFSWITCH_VERSION_FILE}
