@@ -84,7 +84,7 @@ _zsh_tfswitch_install() {
 
 update_zsh_tfswitch() {
     _zsh_tfswitch_log $NONE "blue" "#############################################"
-    _zsh_tfswitch_log $BOLD "blue" "Checking new version of kubectx..."
+    _zsh_tfswitch_log $BOLD "blue" "Checking new version of tfswitch..."
 
     local current_version=$(cat ${ZSH_TFSWITCH_VERSION_FILE})
     local last_version=$(_zsh_tfswitch_last_version)
