@@ -20,5 +20,3 @@
 ### Miscellaneous
 
 - 📝 🐛 fix log message [[cdd3047](https://github.com/ptavares/zsh-tfswitch/commit/cdd3047cc98b1d17b44c368a9789e07369762299)]
-
-

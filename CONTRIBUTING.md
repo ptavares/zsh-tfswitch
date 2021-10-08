@@ -10,12 +10,12 @@ The following is a set of guidelines for contributing to **zsh-exa**. These are 
 
 - [Contributing](#contributing)
   - [Table of Content](#table-of-content)
-  - [Developers Information](#developers-information)
   - [Tools used](#tools-used)
     - [Pre-commit](#pre-commit)
-    - [Makefile Usage](#makefile-usage)
+    - [Makefile](#makefile)
   - [Styleguides](#styleguides)
     - [Git Commit Messages](#git-commit-messages)
+    - [Changelog](#changelog)
     - [Documentation Styleguide](#documentation-styleguide)
 
 <!--TOC-->
