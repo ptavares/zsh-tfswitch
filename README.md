@@ -1,3 +1,7 @@
+![GitHub](https://img.shields.io/github/license/ptavares/zsh-exa)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+![Release](https://img.shields.io/badge/Release_version-0.0.0-blue)
+
 # zsh-tfswitch
 
 ![GitHub](https://img.shields.io/github/license/ptavares/zsh-tfswitch)
@@ -6,11 +10,17 @@ zsh plugin for installing and loading [terraform-switcher](https://github.com/wa
 
 ## Table of content
 
+_This documentation section is generated automatically_
+
+<!--TOC-->
+
 - [zsh-tfswitch](#zsh-tfswitch)
+  - [Table of content](#table-of-content)
   - [Usage](#usage)
-    - [Usage alias](#usage-alias)  
   - [Updating tfswitch](#updating-tfswitch)
   - [License](#license)
+
+<!--TOC-->
 
 ## Usage
 
