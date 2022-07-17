@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="0.2.0"></a>
+## 0.2.0 (2022-07-17)
+
+### Fixed
+
+- 🐛 fix duplicate path addition [[988309a](https://github.com/ptavares/zsh-tfswitch/commit/988309abca9db13b463cd3c6caaaec04c0c57baa)]
+
+
 <a name="0.1.1"></a>
 ## 0.1.1 (2021-10-08)
 
