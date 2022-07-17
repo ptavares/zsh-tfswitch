@@ -99,8 +99,12 @@ update_zsh_tfswitch() {
 }
 
 _zsh_tfswitch_load() {
-    # export PATH
-    export PATH=${PATH}:${TFSWITCH_HOME}
+    # export PATH if needed
+    local -r plugin_dir=${TFSWITCH_HOME}
+    # Add the plugin bin directory path if it doesn't exist in $PATH.
+    if [[ -z ${path[(r)$plugin_dir]} ]]; then
+        path+=($plugin_dir)
+    fi    
 }
 
 # install tfswitch if it isnt already installed
